@@ -12,20 +12,22 @@ const argv = yargs
 })
 .help()
 .argv;
-console.log(argv);
+//console.log(argv);
 
 geocode.getLocation(argv.location,(error,location) => {
   if(error){
     console.log(error);
   }
   else{
-    console.log(location);
+    console.log(location.place);
     weather.getWeather(location.lat,location.lng,(error,weather) => {
       if(error){
         console.log(error);
       }
       else{
-        console.log(weather);
+        console.log(`Temperature is ${weather.temperature}F but feels like ${weather.actual_temperature}F`);
+        console.log(`Humidity: ${weather.humidity*100}%`);
+        console.log(`${weather.summary}`);
       }
     });
   }

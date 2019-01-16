@@ -14,6 +14,7 @@ var getLocation = (address,callback)=>{
      }
      else{
        callback(undefined, {
+         place:body.results[0].locations[0].adminArea5,
          lat:body.results[0].locations[0].latLng.lat,
          lng: body.results[0].locations[0].latLng.lat
        });

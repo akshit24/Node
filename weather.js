@@ -12,7 +12,9 @@ var getWeather =(lat,lng,callback) =>{
     else{
       callback(undefined,{
         temperature: body.currently.temperature,
-        actual_temperature: body.currently.apparentTemperature
+        actual_temperature: body.currently.apparentTemperature,
+        summary: body.currently.summary,
+        humidity: body.currently.humidity
         });
     }
   }
